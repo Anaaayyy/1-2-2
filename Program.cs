@@ -72,7 +72,33 @@ namespace _1_2_2
 
 
 
+            Console.WriteLine("-----------------вещественный массив из 10-ти элементов----------------");
+            // Создаем массив из 10 элементов
+            double[] array6 = new double[10];
+            Random rand6 = new Random();
 
+            // Заполняем массив случайными значениями в диапазоне [-10, 10)
+            for (int i = 0; i < array6.Length; i++)
+            {
+                array6[i] = rand6.NextDouble() * 20 - 10; // [-10, 10)
+            }
+
+            // Выводим исходный массив
+            Console.WriteLine("Исходный массив: " + string.Join(", ", array6));
+
+            // Сортируем индексы массива по возрастанию значений элементов
+            int[] sortedIndices = array6
+                .Select((value, index) => new { Value = value, Index = index })
+                .OrderBy(item => item.Value)
+                .Select(item => item.Index)
+                .ToArray();
+
+            // Выводим массив индексов
+            Console.WriteLine("Массив индексов (по возрастанию элементов): " + string.Join(", ", sortedIndices));
+
+            // Выводим отсортированные элементы для проверки
+            Console.WriteLine("Отсортированные элементы: " + string.Join(", ", sortedIndices.Select(i => array6[i])));
+            Console.ReadLine();
 
 
 
