@@ -36,7 +36,46 @@ namespace _1_2_2
             {
                 Console.Write(array[i] + " ");
             }
-            Console.ReadKey();
+            Console.ReadLine();
+
+
+
+            Console.WriteLine("-----------------символьный массив ----------------");
+            Console.Write("Введите размер массива K: ");
+            int K5 = Convert.ToInt32(Console.ReadLine()); // Вводит размер массива
+
+            Random rand5 = new Random();
+            char[] alphabet = "абвгдеёжзийклмнопрстуфхцчшщъыьэюя".ToCharArray(); // Алфавит
+            HashSet<char> vowels = new HashSet<char>("аеёиоуыэюя"); // Преобразует гласные в HashSet для эффективного поиска
+
+            // Заполняет массив случайными буквами из алфавита
+            char[] array5 = new char[K];
+            for (int i = 0; i < K; i++)
+            {
+                array5[i] = alphabet[rand.Next(alphabet.Length)];
+            }
+
+            // Фильтрует массив, оставляя только согласные буквы
+            List<char> consonants = new List<char>();
+            foreach (char c in array5)
+            {
+                if (!vowels.Contains(c)) // Проверяет на принадлежность к гласным
+                {
+                    consonants.Add(c);
+                }
+            }
+
+            // Выводит массивы
+            Console.WriteLine("Исходный массив: " + string.Join(", ", array));
+            Console.WriteLine("Массив согласных: " + string.Join(", ", consonants));
+            Console.ReadLine();
+
+
+
+
+
+
+
 
         }
     }
